@@ -14,7 +14,7 @@ app.use(express.static('public'));
 const animalSchema = new mongoose.Schema({
     user : String,
     ssp : String,
-    gender : Boolean,
+    gender : String,
     morph: String,
     birthDay : String,
     userID : String,
@@ -25,13 +25,15 @@ const animalSchema = new mongoose.Schema({
 const Animal = mongoose.model("Animal", animalSchema);
 
 app.get('/',(req,res)=>{
-    res.sendFile(__dirname+'/public/pages/home.html');
+    pageName = `home`;
+    res.render(`home`,{pageName : pageName })
 })
-
 
 //register page
 app.get(`/register`, (req,res)=>{
-    res.render(`register`);
+    pageName = `register`;
+    res.render(`register`,{pageName : pageName })
+
 })
 
 app.post(`/register`, (req,res)=>{
@@ -39,23 +41,21 @@ app.post(`/register`, (req,res)=>{
     //the data user gives, to register a new animal
     //maybe needs to get into the async with the REQ
     async function newAnimalRegister(){
+
         const animal = new Animal({
-            user : userName, //something to link the user and the animal
+            // user : userName, //something to link the user and the animal
             ssp : req.body.ssp,
-            gender : eq.body.gender,
+            gender : req.body.gender,
             morph : req.body.morph,
             birthDay : req.body.birthDay,
             userID : req.body.userID,
             feedingFrequency : req.body.feedingFrequency
         });
         animal.save();
+        console.log(`save done`);
     };
 
-    // for (i in animal){
-    //     console.log(i);
-    //     console.log(animal[i]);
-    // }
-
+    newAnimalRegister();
     res.redirect(`/register`);
 })
 
