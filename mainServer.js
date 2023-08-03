@@ -24,6 +24,10 @@ const animalSchema = new mongoose.Schema({
 
 const Animal = mongoose.model("Animal", animalSchema);
 
+app.get(`/login`, (req,res)=>{
+    res.render(`login` ,{pageName : 'Login'});
+})
+
 app.get('/',(req,res)=>{
     pageName = `home`;
     res.render(`home`,{pageName : pageName })
