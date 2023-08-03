@@ -1,0 +1,23 @@
+#registerFormGrid{
+    display: grid;
+    grid-template-columns: 250px 300px;
+    margin: 20px;
+    grid-row: auto;
+}
+
+.inputBox{
+    grid-column-start: 1;
+    margin-bottom: 20px;
+}
+.hint{
+opacity: 70%;}
+
+.but{
+    width: fit-content;
+    margin-top: 20px;
+}
+.form{
+    display: flex;
+    justify-content: center;
+}
+

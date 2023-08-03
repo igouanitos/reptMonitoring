@@ -1,0 +1,83 @@
+<%- include("header") -%>
+
+
+<h1>New Animal Register</h1>
+<div class="form">
+<form action="/register" method="post">
+    <div id="registerFormGrid">
+    <h2>Register Form</h2><br>
+
+    <!-- 1st line -ssp- -->
+    <div>
+        <span>ssp</span>
+    </div>
+    <div>
+        <input class="inputBox" type="text" name="ssp" id="ssp" placeholder="ssp">
+    </div>
+
+    <!-- 2nd line -gender- -->
+    <div>
+        <span>gender</span>
+    </div>
+    <div>
+        <input class="inputBox" type="text" name="gender" id="gender" placeholder="gender">
+    </div>
+
+    <!-- 3rd line -morph- -->
+    <div>
+        <span>morph</span>
+    </div>
+    <div>
+        <input class="inputBox" type="text" name="morph" id="morph" placeholder="morph">
+    </div>
+
+        <!-- 4th line -birthday- -->
+    <div>
+        <span>Date of Birth</span>
+    </div>
+    <div>
+        <input class="inputBox" type="date" name="birthDay" id="birthDay">
+    </div>
+
+        <!-- 5th line -status- -->        
+    <div>
+        <span>Current Status</span>
+    </div>
+    <div>
+        <input class="inputBox" type="text" name="currentStatus" id="currentStatus">
+    </div>
+
+        <!-- 6th line -user id- -->        
+    <div>
+        <span>Code ID</span>
+    </div>
+    <div>
+        <input class="inputBox" type="text" name="userID" id="userID">
+    </div>
+
+        <!-- 7th line -feeding frequency- -->     
+    <div>
+        <span>Feeding Frequency</span>
+    </div>
+    <div>
+        <input class="inputBox" type="number" name="feedingFrequency" id="feedingFrequency" placeholder="in days" min="3" max="45">
+        <span class="hint">3-45 days.</span>
+    </div>
+
+    <button type="submit" class="but">Submit</button>
+    <button type="reset" class="but">Clear</button>
+</div>
+</form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<%- include("footer") -%>
