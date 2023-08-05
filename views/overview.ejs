@@ -1,0 +1,19 @@
+<%- include("header") -%>
+
+
+<div class="grid-container">
+
+<% for(let i=0;i<content.length;i++){  %>
+
+    <div class="grid-item"><%= content[i].ssp %></div>
+    <div class="grid-item"><%= content[i].gender %></div>
+    <div class="grid-item"><%= content[i].morph %></div>
+    <div class="grid-item"><%= content[i].birthDay %></div>
+    <div class="grid-item"><%= content[i].userID %></div>
+    <div class="grid-item"><%= content[i].feedingFrequency %></div>
+
+<% } %>
+ 
+  </div>
+
+<%- include("footer") -%>

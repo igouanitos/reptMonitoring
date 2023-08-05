@@ -1,17 +1,15 @@
 <%- include("header") -%>
 
-
-<label for="userName">User Name</label>
-<input type="text" name="userName">
-
-
-<label for="password">password</label>
-<input type="password" name="password">
+<form action="/login" method="post">
+    <label for="userName">User Name</label>
+    <input type="text" name="userName">
 
 
+    <label for="psw">password</label>
+    <input type="password" name="psw">
 
-
-
+    <button type="submit">Log in</button>
+</form>
 
 
 <%- include("footer") -%>
