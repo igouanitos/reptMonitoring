@@ -1,19 +1,30 @@
 <%- include("header") -%>
 
+<div class="container heading">
+  <div class="column">SSP</div>
+  <div class="column">GENDER</div>
+  <div class="column">MORPH</div>
+  <div class="column">BIRTH DAY</div>
+  <div class="column">ID</div>
+  <div class="column">FEEDING FREQUENCY</div>
+</div>
 
-<div class="grid-container">
 
 <% for(let i=0;i<content.length;i++){  %>
 
-    <div class="grid-item"><%= content[i].ssp %></div>
-    <div class="grid-item"><%= content[i].gender %></div>
-    <div class="grid-item"><%= content[i].morph %></div>
-    <div class="grid-item"><%= content[i].birthDay %></div>
-    <div class="grid-item"><%= content[i].userID %></div>
-    <div class="grid-item"><%= content[i].feedingFrequency %></div>
+
+  <div class="container">
+    <div class="column"><%= content[i].ssp %></div>
+    <div class="column"><%= content[i].gender %></div>
+    <div class="column"><%= content[i].morph %></div>
+    <div class="column"><%= content[i].birthDay %></div>
+    <div class="column"><%= content[i].userID %></div>
+    <div class="column"><%= content[i].feedingFrequency %></div>
+  </div>
+
 
 <% } %>
  
-  </div>
+
 
 <%- include("footer") -%>
