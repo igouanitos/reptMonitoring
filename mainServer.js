@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+
 const app = express();
 const port = 3000;
 
@@ -38,35 +39,47 @@ const Animal = mongoose.model("Animal", animalSchema);
 
 var currentUser = {} ;
 
+async function userLivestock (res){
+    try{
+        const find = {user : currentUser._id};
+        const findResult = await Animal.find(find);
+        res.render(`overview`, {pageName : `overview`, content : findResult });
+    }catch(err){
+        console.error(err);
+        res.render(`overview`, {pageName : `error`, content : `error` });
+    }
+}
+
 //signup seems working
 //needs restrictions about the inputs, but its working
 app.post(`/signup`, (req,res)=>{
 
     async function newUser(){
-        const user = new User({
+        const newUser = new User({
             userName : req.body.userName,
             userPw : req.body.psw,
             userEmail : req.body.email
         });
-        user.save();
-        console.log(`user "${user.userName}" signed up successfully.`);
-        res.render(`login`,{pageName : 'Login'})
+        newUser.save();
+        console.log(`user "${newUser.userName}" signed up successfully.`);
+        res.render(`login`,{pageName : 'Login', loginStatus: ``})
     }
 
-    if (req.body.psw === req.body.psw_repeat){
-        newUser();
+
+    if (req.body.psw === req.body.psw_repeat){ // check if the pw and pwRepeat are the same
+        newUser();    
     } else {
-        res.render(`signup`,{pageName : 'signup'});
+        res.render(`signup`,{pageName : 'signup', signupStatus : `Passwords doesnt match.`});
         console.log(`Passwords doesnt match.`);
     }
 });
 
 app.get(`/signup`, (req,res)=>{
-    res.render(`signup`,{pageName : 'signup'});
+    res.render(`signup`,{pageName : 'signup', signupStatus:``});
 });
 
 app.get(`/login`, (req,res)=>{
-    res.render(`login` ,{pageName : 'Login'});
+    res.render(`login` ,{pageName : 'Login', loginStatus : ``});
 })
 
 app.post(`/login`, (req,res)=>{
@@ -79,16 +92,16 @@ app.post(`/login`, (req,res)=>{
             if (user[0].userPw === userPwTry){
                 currentUser = user[0];
                 console.log(`user "${currentUser.userName}" successfully connected`);
-                res.render(`loginStatus` ,{pageName : 'success'});
+                userLivestock(res);
             } else{
-                console.log(`wrong password`);
-                res.render(`login` ,{pageName : 'wrong password'});
+                console.log(`the user "${userNameTry}" tried to login with wrong password`);
+                res.render(`login` ,{pageName : 'Login', loginStatus : `wrong username or password`});
             }
 
 
         }catch(err){
             console.log(`user "${userNameTry}" does not exist.`);
-            res.render(`login` ,{pageName : `user "${userNameTry}" does not exist.`});
+            res.render(`login` ,{pageName : `login`, loginStatus: `wrong username or password`});
         }
 
     }
@@ -134,21 +147,14 @@ app.post(`/register`, (req,res)=>{
 
 app.get(`/overview`, (req,res)=>{
 
-    async function userLivestock (){
-        try{
-            const find = {user : currentUser._id};
-            const findResult = await Animal.find(find);
-            res.render(`overview`, {pageName : `overview`, content : findResult });
-        }catch(err){
-            console.error(err);
-            res.render(`overview`, {pageName : `error`, content : `error` });
-        }
-    }
-
-    userLivestock();
+    userLivestock(res);
 
 })
 
+
+app.post(`/admin`,(req,res)=>{
+    console.log(currentUser);
+})
 
 app.listen(port, ()=>{
     console.log(`your server is up at port ${port}`)
