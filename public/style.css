@@ -49,3 +49,12 @@ opacity: 70%;}
     box-sizing: border-box;
     border: 1px solid #ccc;
   }
+  .admin{
+    background-color: black;
+  }
+  .active{
+    margin-left: 10px;
+  }
+  .adPan{
+    background-color: aliceblue;
+  }
