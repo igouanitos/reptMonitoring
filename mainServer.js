@@ -54,24 +54,39 @@ async function userLivestock (res){
 //needs restrictions about the inputs, but its working
 app.post(`/signup`, (req,res)=>{
 
-    async function newUser(){
-        const newUser = new User({
-            userName : req.body.userName,
-            userPw : req.body.psw,
-            userEmail : req.body.email
-        });
-        newUser.save();
-        console.log(`user "${newUser.userName}" signed up successfully.`);
-        res.render(`login`,{pageName : 'Login', loginStatus: ``})
+    const userNameTry = req.body.userName;
+    const emailTry = req.body.email;
+    async function validationCheck(){
+        try{ // check for existing usernames
+            const query = {userName : userNameTry};
+            const user = await User.find(query);
+            console.log(`user ${user[0].userName} already exists`);
+            res.render(`signup`,{pageName : 'signup', signupStatus : `The username already exists.`});
+        }catch{
+            try{ //check for existing emails
+                const query = {userEmail : emailTry};
+                const user = await User.find(query);
+                console.log(`there is another user with ${user[0].userEmail}.`);
+                res.render(`signup`,{pageName : 'signup', signupStatus : `Another user using this email.`});
+            }catch{
+                const newUser = new User({
+                    userName : req.body.userName,
+                    userPw : req.body.psw,
+                    userEmail : req.body.email
+                });
+                newUser.save();
+                console.log(`user "${newUser.userName}" signed up successfully.`);
+                res.render(`login`,{pageName : 'Login', loginStatus: ``})
+            }
+        }
     }
-
-
     if (req.body.psw === req.body.psw_repeat){ // check if the pw and pwRepeat are the same
-        newUser();    
+        validationCheck();    
     } else {
         res.render(`signup`,{pageName : 'signup', signupStatus : `Passwords doesnt match.`});
         console.log(`Passwords doesnt match.`);
     }
+
 });
 
 app.get(`/signup`, (req,res)=>{
