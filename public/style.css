@@ -70,12 +70,25 @@ opacity: 70%;}
   }
   #header{
     background-color: #454545;
+    position: sticky;
+    top: 0;
   }
-  .footer{
+  #footer{
     background-color: #454545;
     color: white;
     padding: 10px;
     text-align: center;
-    position:sticky ;
-    bottom:0`;
+    bottom:0;
+  }
+  .kati{
+    color: aliceblue;
+  }
+  .login{
+    justify-content: center;
+  }
+  .form-floating{
+    margin-bottom: 10px;
+  }
+  .btn{
+    margin-right: 10px;
   }
