@@ -126,8 +126,18 @@ app.post(`/login`, (req,res)=>{
 
 
 app.get('/',(req,res)=>{
-    pageName = `home`;
-    res.render(`home`,{pageName : pageName })
+    const home = {
+        pageName : `home`,
+        title : `this is a title`,
+        subTitle :` this is a sub title`,
+        content : `this is the page's content`
+    }
+    res.render(`template`,{
+        pageName : home.pageName,
+        title : home.title,
+        subTitle : home.subTitle,
+        content : home.content
+     })
 })
 
 //register page
@@ -163,12 +173,20 @@ app.post(`/register`, (req,res)=>{
 app.get(`/overview`, (req,res)=>{
 
     userLivestock(res);
-
 })
 
-
-app.post(`/admin`,(req,res)=>{
+app.post(`/admin`, (req,res)=>{
     console.log(currentUser);
+})
+
+app.get(`/features`, (req,res)=>{
+    pageName = `Features`;
+    res.render(`features`, {pageName : pageName });
+})
+
+app.get(`/features`, (req,res)=>{
+    pageName = `Features`;
+    res.render(`features`, {pageName : pageName });
 })
 
 app.listen(port, ()=>{
