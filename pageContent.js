@@ -24,6 +24,14 @@ home : function() {
         subTitle :` this is a sub title about about `,
         content : `this is the page's content about about`
     }
-    return x;}
+    return x;},
 
+    faqs : function() {
+    const x = {
+        pageName : `faqs`,
+        title : `faqs`,
+        subTitle :` faqs`,
+        content : `faqs`
+    }
+    return x;}
 }

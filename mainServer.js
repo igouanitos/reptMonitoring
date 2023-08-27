@@ -16,6 +16,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
 
 const userSchema = new mongoose.Schema({
+    firstName : String,
+    lastName : String,
     userName : String,
     userPw : String,
     userEmail : String
@@ -69,6 +71,8 @@ app.post(`/signup`, (req,res)=>{
                 res.render(`signup`,{pageName : 'signup', signupStatus : `Another user using this email.`});
             }catch{
                 const newUser = new User({
+                    firstName : req.body.firstName,
+                    lastName : req.body.lastName,
                     userName : req.body.userName,
                     userPw : req.body.psw,
                     userEmail : req.body.email
@@ -190,6 +194,18 @@ app.get(`/features`, (req,res)=>{
 app.get(`/about`, (req,res)=>{
 
     const page = pageContent.about();
+
+    res.render(`template`,{
+        pageName : page.pageName,
+        title : page.title,
+        subTitle : page.subTitle,
+        content : page.content
+     })
+})
+
+app.get(`/faqs`, (req,res)=>{
+
+    const page = pageContent.faqs();
 
     res.render(`template`,{
         pageName : page.pageName,
