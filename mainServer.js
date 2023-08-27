@@ -1,8 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-
-
+const pageContent = require('./pageContent');
 const app = express();
 const port = 3000;
 
@@ -126,17 +125,14 @@ app.post(`/login`, (req,res)=>{
 
 
 app.get('/',(req,res)=>{
-    const home = {
-        pageName : `home`,
-        title : `this is a title`,
-        subTitle :` this is a sub title`,
-        content : `this is the page's content`
-    }
+
+    const page = pageContent.home();
+
     res.render(`template`,{
-        pageName : home.pageName,
-        title : home.title,
-        subTitle : home.subTitle,
-        content : home.content
+        pageName : page.pageName,
+        title : page.title,
+        subTitle : page.subTitle,
+        content : page.content
      })
 })
 
@@ -180,13 +176,27 @@ app.post(`/admin`, (req,res)=>{
 })
 
 app.get(`/features`, (req,res)=>{
-    pageName = `Features`;
-    res.render(`features`, {pageName : pageName });
+
+    const page = pageContent.features();
+
+    res.render(`template`,{
+        pageName : page.pageName,
+        title : page.title,
+        subTitle : page.subTitle,
+        content : page.content
+     })
 })
 
-app.get(`/features`, (req,res)=>{
-    pageName = `Features`;
-    res.render(`features`, {pageName : pageName });
+app.get(`/about`, (req,res)=>{
+
+    const page = pageContent.about();
+
+    res.render(`template`,{
+        pageName : page.pageName,
+        title : page.title,
+        subTitle : page.subTitle,
+        content : page.content
+     })
 })
 
 app.listen(port, ()=>{
