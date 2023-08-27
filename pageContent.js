@@ -1,5 +1,5 @@
 module.exports = {
-home : function() {
+    home : function() {
     const x = {
         pageName : `home`,
         title : `this is a title`,
