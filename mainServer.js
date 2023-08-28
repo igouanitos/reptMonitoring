@@ -8,7 +8,7 @@ const port = 3000;
 mongoose.connect("mongodb://127.0.0.1/reptMonitoring", {
     useNewUrlParser: true,
     useUnifiedTopology: true
-  });
+});
 
 app.set('view engine', 'ejs');
 
@@ -173,10 +173,6 @@ app.post(`/register`, (req,res)=>{
 app.get(`/overview`, (req,res)=>{
 
     userLivestock(res);
-})
-
-app.post(`/admin`, (req,res)=>{
-    console.log(currentUser);
 })
 
 app.get(`/features`, (req,res)=>{
