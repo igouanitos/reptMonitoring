@@ -1,37 +1,36 @@
-
-.container{
+body{
+  display: grid;
+  grid-template-columns: 15% 85%;
+}
+.navBarContainer{
     background-color: aqua;
-    display: flex;
+    display: flexbox;
     flex-direction: column;
-    justify-content: flex-start;
-    width: 25%;
+    justify-content: center;
+    align-items: center;
     position: sticky;
-    margin-left: 0;
+    margin: 10;
+    padding: 10;
+    left: 0;
+    height: 100%;
 }
-button{
+.menuButtons{
+  padding: 18px;
+  margin: 10%;
+  border: solid 1px black;
+  background-color: aqua;
+  font-size: 15px;
+  outline: none;
+  text-align: left;
+  width: 80%;
 }
+
 .nonCol{
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;  
-    background-color: aqua;
-    margin-left: 0;
-    border-style: inset;
+    
 }
 /* Style the button that is used to open and close the collapsible content */
 .collapsible {
-  background-color: aqua;
   cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-  border-style: inset;
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -43,5 +42,4 @@ button{
 .content {
   display: none;
   overflow: hidden;
-  background-color: #f1f1f1;
 }
