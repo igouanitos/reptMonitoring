@@ -9,10 +9,8 @@
   <div class="column">FEEDING FREQUENCY</div>
 </div>
 
-
+<div class="containerM">
 <% for(let i=0;i<content.length;i++){  %>
-
-
   <div class="container">
     <div class="column"><%= content[i].ssp %></div>
     <div class="column"><%= content[i].gender %></div>
@@ -21,10 +19,9 @@
     <div class="column"><%= content[i].userID %></div>
     <div class="column"><%= content[i].feedingFrequency %></div>
   </div>
-
-
 <% } %>
+</div>
  
 
 
-<%- include("footer") -%>
+<%- include("mainFooter") -%>

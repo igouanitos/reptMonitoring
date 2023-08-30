@@ -1,6 +1,22 @@
 body{
   display: grid;
-  grid-template-columns: 15% 85%;
+  width: 100%hw;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 10% 90%vh;
+  column-gap: 0px;
+  row-gap: 0px;
+} 
+.containerM{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+.heading{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 0;
+  grid-row-end: 1;
 }
 .navBarContainer{
     background-color: aqua;
@@ -13,6 +29,10 @@ body{
     padding: 10;
     left: 0;
     height: 100%;
+    grid-column-start: 0;
+    grid-column-end: 1;
+    grid-row-start: 0;
+    grid-row-end: span 2;
 }
 .menuButtons{
   padding: 18px;
