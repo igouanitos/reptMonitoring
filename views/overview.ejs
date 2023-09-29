@@ -1,4 +1,44 @@
-<%- include("mainHeader") -%>
+<!-- <%- include("mainHeader") -%> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styling/main.css">
+    <title>overview</title>
+</head>
+<body>
+  <div class="overviewPage">
+    <div class="navBarContainer">
+        <div><button class="nonCol menuButtons">animals</button></div>
+        <div><button id="1" class="collapsible menuButtons">feedings <img id="arrow1" src="/images/caret-down-fill.svg"></button>
+            <div class="content">
+                <button class="nonCol menuButtons">needs food</button>
+                <button class="nonCol menuButtons">feeding overview</button>
+            </div>
+        </div>
+        <div><button id="2" class="collapsible menuButtons">breedings <img id="arrow2" src="/images/caret-down-fill.svg"></button>
+            <div class="content">
+                <button class="nonCol menuButtons">breeding</button>
+                <button class="nonCol menuButtons">cluches</button>
+            </div>
+        </div>
+        <div><button id="3" class="collapsible menuButtons">feeders stock <img id="arrow3" src="/images/caret-down-fill.svg"></button>
+            <div class="content">
+                <button class="nonCol menuButtons">add feeders</button>
+                <button class="nonCol menuButtons">stock overview</button>
+            </div>
+        </div>
+        <div><button id="4" class="collapsible menuButtons">facility / space control <img id="arrow4" src="/images/caret-down-fill.svg"></button>
+            <div class="content">
+                <button class="nonCol menuButtons">create facility</button>
+                <button class="nonCol menuButtons">manage facility</button>
+                <button class="nonCol menuButtons">facility overview</button>
+            </div>
+        </div>
+        
+    </div>
 
 <div class="container heading">
   <div class="column">SSP</div>
@@ -21,7 +61,16 @@
   </div>
 <% } %>
 </div>
- 
 
+</div>
 
-<%- include("mainFooter") -%>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script src="/scripts/main.js"></script>
+
+</body>
+
+</html>
+
+<!--<%- include("mainFooter") -%> -->

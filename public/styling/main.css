@@ -1,10 +1,15 @@
-body{
+html{
+  background-color: #454545;
+}
+.overviewPage{
   display: grid;
-  width: 100%hw;
-  grid-template-columns: 20% 80%;
-  grid-template-rows: 10% 90%vh;
+  width: 100%;
+  grid-template-columns: 10%vw 90%vh;
+  grid-template-rows: 200px 90%vh;
   column-gap: 0px;
   row-gap: 0px;
+  margin-right: 0;
+
 } 
 .containerM{
   grid-column-start: 1;
@@ -17,6 +22,7 @@ body{
   grid-column-end: 2;
   grid-row-start: 0;
   grid-row-end: 1;
+  background-color: orange;
 }
 .navBarContainer{
     background-color: aqua;
@@ -28,6 +34,7 @@ body{
     margin: 10;
     padding: 10;
     left: 0;
+    width: 300px;
     height: 100%;
     grid-column-start: 0;
     grid-column-end: 1;
@@ -45,9 +52,6 @@ body{
   width: 80%;
 }
 
-.nonCol{
-    
-}
 /* Style the button that is used to open and close the collapsible content */
 .collapsible {
   cursor: pointer;
@@ -62,4 +66,18 @@ body{
 .content {
   display: none;
   overflow: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.column {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
 }
